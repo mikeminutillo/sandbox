@@ -12,16 +12,16 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+defaults:
+  run:
+    shell: bash
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.0
+        
       - name: Install Python
         uses: actions/setup-python@v5
         with:
@@ -29,8 +29,6 @@ jobs:
 
       - name: Install Dependencies
         run: pip install requests
-        shell: bash
 
       - name: Download files
         run: python src/downloader.python
-        shell: bash
