@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6.0.0
-        
+
       - name: Install Python
         uses: actions/setup-python@v5
         with:
@@ -31,4 +31,4 @@ jobs:
         run: pip install requests
 
       - name: Download files
-        run: python src/downloader.python
+        run: python src/downloader.py
