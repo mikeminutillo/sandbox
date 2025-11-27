@@ -32,3 +32,9 @@ jobs:
 
       - name: Download files
         run: python src/downloader.py
+
+      - name: Upload downloads
+        uses: actions/upload-artifact@v5.0.0
+        with:
+          name: Images
+          path: src/downloaded_files/
